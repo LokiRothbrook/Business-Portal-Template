@@ -15,16 +15,8 @@ import {
   Youtube,
   MapPin,
   Navigation,
-  Briefcase,
-  Users,
-  Lightbulb,
-  Target,
-  Award,
-  TrendingUp,
-  Shield,
-  Zap,
-  type LucideIcon,
 } from "lucide-react"
+import { getIcon } from "@/lib/icon-map"
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -32,17 +24,6 @@ function XIcon({ className }: { className?: string }) {
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   )
-}
-
-const iconMap: { [key: string]: LucideIcon } = {
-  Briefcase,
-  Users,
-  Lightbulb,
-  Target,
-  Award,
-  TrendingUp,
-  Shield,
-  Zap,
 }
 
 import { cn } from "@/lib/utils"
@@ -200,7 +181,7 @@ export function Header() {
                         </div>
                         <div className="grid grid-cols-2 gap-3">
                           {services.map((service, index) => {
-                            const ServiceIcon = iconMap[service.iconName]; // Added
+                            const ServiceIcon = getIcon(service.iconName)
                             return (
                               <motion.div
                                 key={service.id}
@@ -362,7 +343,7 @@ export function Header() {
                         </Link>
                         <div className="pl-3 space-y-0.5">
                           {services.map((service) => {
-                            const ServiceIcon = iconMap[service.iconName]; // Added
+                            const ServiceIcon = getIcon(service.iconName)
                             return (
                               <Link
                                 key={service.id}

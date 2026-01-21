@@ -3,31 +3,10 @@
 import * as React from "react"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
-import {
-  ArrowRight,
-  Briefcase,
-  Users,
-  Lightbulb,
-  Target,
-  Award,
-  TrendingUp,
-  Shield,
-  Zap,
-  type LucideIcon,
-} from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { services, servicesSectionContent } from "@/lib/data"
 import { Button } from "@/components/ui/button"
-
-const iconMap: { [key: string]: LucideIcon } = {
-  Briefcase,
-  Users,
-  Lightbulb,
-  Target,
-  Award,
-  TrendingUp,
-  Shield,
-  Zap,
-}
+import { getIcon } from "@/lib/icon-map"
 
 export function ServicesSection() {
   const ref = React.useRef<HTMLDivElement>(null)
@@ -67,7 +46,7 @@ export function ServicesSection() {
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => {
-            const ServiceIcon = iconMap[service.iconName]; // Added
+            const ServiceIcon = getIcon(service.iconName)
             return (
               <motion.div
                 key={service.id}

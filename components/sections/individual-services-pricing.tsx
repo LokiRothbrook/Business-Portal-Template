@@ -2,29 +2,8 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { individualServicesPricingContent, services } from "@/lib/data" // Import services for mapping
-import {
-  Briefcase,
-  Users,
-  Lightbulb,
-  Target,
-  Award,
-  TrendingUp,
-  Shield,
-  Zap,
-  type LucideIcon,
-} from "lucide-react"
-
-const iconMap: { [key: string]: LucideIcon } = {
-  Briefcase,
-  Users,
-  Lightbulb,
-  Target,
-  Award,
-  TrendingUp,
-  Shield,
-  Zap,
-}
+import { individualServicesPricingContent, services } from "@/lib/data"
+import { getIcon } from "@/lib/icon-map"
 
 export function IndividualServicesPricingSection() {
   return (
@@ -47,7 +26,7 @@ export function IndividualServicesPricingSection() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => {
-            const ServiceIcon = iconMap[service.iconName]; // Added
+            const ServiceIcon = getIcon(service.iconName)
             return (
               <motion.div
                 key={service.id}
