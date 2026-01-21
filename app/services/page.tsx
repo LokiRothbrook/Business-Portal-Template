@@ -2,34 +2,12 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import {
-  ArrowRight,
-  CheckCircle,
-  Briefcase,
-  Users,
-  Lightbulb,
-  Target,
-  Award,
-  TrendingUp,
-  Shield,
-  Zap,
-  type LucideIcon,
-} from "lucide-react"
+import { ArrowRight, CheckCircle } from "lucide-react"
 import { services } from "@/lib/data"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { CtaSection } from "@/components/sections/cta"
-
-const iconMap: { [key: string]: LucideIcon } = {
-  Briefcase,
-  Users,
-  Lightbulb,
-  Target,
-  Award,
-  TrendingUp,
-  Shield,
-  Zap,
-}
+import { getIcon } from "@/lib/icon-map"
 
 export default function ServicesPage() {
   return (
@@ -72,8 +50,8 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-8">
                             {services.map((service, index) => {
-                              const ServiceIcon = iconMap[service.iconName]; // Added
-                              return ( // Added explicit return
+                              const ServiceIcon = getIcon(service.iconName)
+                              return (
                                 <motion.div
                                   key={service.id}
                                   initial={{ opacity: 0, y: 30 }}

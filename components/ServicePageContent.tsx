@@ -9,32 +9,13 @@ import {
   CheckCircle,
   Phone,
   Star,
-  Briefcase,
-  Users,
-  Lightbulb,
-  Target,
-  Award,
-  TrendingUp,
-  Shield,
-  Zap,
-  type LucideIcon,
 } from "lucide-react"
 import { services } from "@/lib/data"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { CtaSection } from "@/components/sections/cta"
-
-const iconMap: { [key: string]: LucideIcon } = {
-  Briefcase,
-  Users,
-  Lightbulb,
-  Target,
-  Award,
-  TrendingUp,
-  Shield,
-  Zap,
-}
+import { getIcon } from "@/lib/icon-map"
 
 interface ServicePageContentProps {
   service: Omit<typeof services[number], 'icon'> & { iconName: string };
@@ -43,7 +24,7 @@ interface ServicePageContentProps {
 }
 
 export function ServicePageContent({ service, prevService, nextService }: ServicePageContentProps) {
-  const ServiceIcon = iconMap[service.iconName]
+  const ServiceIcon = getIcon(service.iconName)
   return (
     <>
       <Header />

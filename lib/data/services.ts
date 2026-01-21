@@ -1,17 +1,5 @@
 // lib/data/services.ts
 
-import {
-  Briefcase,
-  Users,
-  Lightbulb,
-  Target,
-  Award,
-  TrendingUp,
-  Shield,
-  Zap,
-  type LucideIcon,
-} from "lucide-react";
-
 /**
  * This file contains data specific to the "Services" section and pages.
  * It defines the structure of a service and provides an array of services
